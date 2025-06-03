@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Breadcrumb from 'Common/BreadCrumb';
 import { Card, Col, Row } from 'react-bootstrap';
-import Cleave from 'cleave.js/react';
+import Cleave from 'cleave.js';
 import "cleave.js/dist/addons/cleave-phone.in";
 
 const InputMask = () => {
@@ -57,14 +57,34 @@ const InputMask = () => {
     setPhone(e.target.rawValue);
   }
   //Number
-  function onNumberChange(e: any) {
-    setNumber(e.target.rawValue);
-  }
+  const numeralInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (numeralInput.current) {
+      new Cleave(numeralInput.current, {
+        numeral: true,
+        numeralThousandsGroupStyle: 'thousand'
+      });
+    }
+
+    return () => {
+      if (numeralInput.current) {
+        const cleaveInstance = new Cleave(numeralInput.current);
+        cleaveInstance.destroy();
+      }
+    };
+  }, []);
+
+  const onNumberChange = (e: any) => {
+    if (numeralInput.current) {
+      setNumber(numeralInput.current.value);
+    }
+  };
 
   return (
     <React.Fragment>
       <div className="page">
-      <Breadcrumb pageTitle="Forms" title="Input Masks" />
+        <Breadcrumb pageTitle="Forms" title="Input Masks" />
         <Row>
           <Col lg={12}>
             <Card>
@@ -72,11 +92,11 @@ const InputMask = () => {
                 <h4 className="card-title mb-0">Examples</h4>
               </Card.Header>
 
-              <Card.Body >
+              <Card.Body>
                 <form action="#">
                   <div>
                     <h5 className="fs-md mb-3 text-muted">Date Formatting</h5>
-                    <Row >
+                    <Row>
                       <Col xl={6}>
                         <div className="mb-3">
                           <label htmlFor="cleave-date" className="form-label">Date</label>
@@ -84,8 +104,8 @@ const InputMask = () => {
                             placeholder="DD-MM-YYYY"
                             options={{
                               date: true,
-                              delimiter: '-',
-                              datePattern: ['d', 'm', 'Y']
+                              delimiter: "-",
+                              datePattern: ["d", "m", "Y"]
                             }}
                             value={date}
                             onChange={(e: any) => onDateChange(e)}
@@ -93,7 +113,6 @@ const InputMask = () => {
                           />
                         </div>
                       </Col>
-
                       <Col xl={6}>
                         <div className="mb-3">
                           <label htmlFor="cleave-date-format" className="form-label">Date Formatting</label>
@@ -101,7 +120,7 @@ const InputMask = () => {
                             placeholder="MM/YY"
                             options={{
                               date: true,
-                              datePattern: ['m', 'y']
+                              datePattern: ["m", "y"]
                             }}
                             value={dateFormat}
                             onChange={(e: any) => onDateFormatChange(e)}
@@ -111,9 +130,7 @@ const InputMask = () => {
                       </Col>
                     </Row>
                   </div>
-
-                  <div className="border mt-3 border-dashed"></div>
-
+                  <div className="border mt-3 border-dashed" />
                   <div className="mt-4">
                     <h6 className="mb-3 fs-md text-muted">Time Formatting</h6>
                     <Row>
@@ -124,16 +141,14 @@ const InputMask = () => {
                             placeholder="hh:mm:ss"
                             options={{
                               time: true,
-                              timePattern: ['h', 'm', 's']
+                              timePattern: ["h", "m", "s"]
                             }}
                             value={time}
                             onChange={(e: any) => onTimeChange(e)}
                             className="form-control"
                           />
                         </div>
-
                       </Col>
-
                       <Col xl={6}>
                         <div className="mb-3">
                           <label htmlFor="cleave-time-format" className="form-label">Time Formatting</label>
@@ -141,7 +156,7 @@ const InputMask = () => {
                             placeholder="hh:mm"
                             options={{
                               time: true,
-                              timePattern: ['h', 'm']
+                              timePattern: ["h", "m"]
                             }}
                             value={timeFormat}
                             onChange={(e: any) => onTimeFormatChange(e)}
@@ -151,9 +166,7 @@ const InputMask = () => {
                       </Col>
                     </Row>
                   </div>
-
-                  <div className="border mt-3 border-dashed"></div>
-
+                  <div className="border mt-3 border-dashed" />
                   <div className="mt-4">
                     <h5 className="fs-md mb-3 text-muted">Custom Options</h5>
                     <Row>
@@ -163,23 +176,21 @@ const InputMask = () => {
                           <Cleave
                             placeholder="xxxx xxxx xxxx xxxx"
                             options={{
-                              creditCard: true,
+                              creditCard: true
                             }}
                             value={creditCardNo}
                             onChange={(e: any) => onCreditCardChange(e)}
                             className="form-control"
                           />
                         </div>
-
                       </Col>
-
                       <Col xl={6}>
                         <div className="mb-3">
                           <label htmlFor="cleave-delimiter" className="form-label">Delimiter</label>
                           <Cleave
                             placeholder="xxx·xxx·xxx"
                             options={{
-                              delimiter: '·',
+                              delimiter: "·",
                               blocks: [3, 3, 3],
                               uppercase: true
                             }}
@@ -190,7 +201,6 @@ const InputMask = () => {
                         </div>
                       </Col>
                     </Row>
-
                     <Row>
                       <Col xl={6}>
                         <div className="mb-3">
@@ -198,7 +208,7 @@ const InputMask = () => {
                           <Cleave
                             placeholder="xxx.xxx.xxx-xx"
                             options={{
-                              delimiters: ['.', '.', '-'],
+                              delimiters: [".", ".", "-"],
                               blocks: [3, 3, 3, 2],
                               uppercase: true
                             }}
@@ -208,14 +218,13 @@ const InputMask = () => {
                           />
                         </div>
                       </Col>
-
                       <Col xl={6}>
                         <div className="mb-3">
                           <label htmlFor="cleave-prefix" className="form-label">Prefix</label>
                           <Cleave
                             options={{
-                              prefix: 'PREFIX',
-                              delimiter: '-',
+                              prefix: "PREFIX",
+                              delimiter: "-",
                               blocks: [6, 4, 4, 4],
                               uppercase: true
                             }}
@@ -226,7 +235,6 @@ const InputMask = () => {
                         </div>
                       </Col>
                     </Row>
-
                     <Row>
                       <Col xl={6}>
                         <div className="mb-3 mb-xl-0">
@@ -243,19 +251,16 @@ const InputMask = () => {
                           />
                         </div>
                       </Col>
-
                       <Col xl={6}>
                         <div className="mb-0">
                           <label htmlFor="cleave-numeral" className="form-label">Numeral Formatting</label>
-                          <Cleave
+                          <input
+                            type="text"
                             placeholder="Enter numeral"
-                            options={{
-                              numeral: true,
-                              numeralThousandsGroupStyle: 'thousand',
-                            }}
                             value={number}
-                            onChange={(e: any) => onNumberChange(e)}
+                            onChange={onNumberChange}
                             className="form-control"
+                            ref={numeralInput}
                           />
                         </div>
                       </Col>
@@ -268,7 +273,7 @@ const InputMask = () => {
         </Row>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default InputMask;
