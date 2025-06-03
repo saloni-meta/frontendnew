@@ -1,32 +1,57 @@
-import React, { useEffect } from "react";
-import { Navigate, Route } from "react-router-dom";
-import { setAuthorization } from "../helpers/api_helper";
+import React, { useEffect, useState } from "react";
+import { Navigate, Route, useSearchParams } from "react-router-dom";
+import { setAuthorization, APIClient } from "../helpers/api_helper";
 import { useDispatch } from "react-redux";
-
-import { useProfile } from "Common/Hooks/UserHooks";
-
-import { logoutUser } from "slices/thunk";
 
 const AuthProtected = (props: any) => {
   const dispatch = useDispatch<any>();
-  const { userProfile, loading, token } = useProfile();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get("token");
+  const [isValidToken, setIsValidToken] = useState(false);
+  const bypassAuth = true; // Set to true to bypass authentication for development
+
   useEffect(() => {
-    if (userProfile && !loading && token) {
-      setAuthorization(token);
-    } else if (!userProfile && loading && !token) {
-      dispatch(logoutUser());
-    }
-  }, [token, userProfile, loading, dispatch]);
+    const validateToken = async () => {
+      if (bypassAuth) {
+        setIsValidToken(true);
+        return;
+      }
+
+      if (token) {
+        try {
+          const apiClient = new APIClient();
+          const response = await apiClient.create("/auth/validate-token", { token: token });
+          if (response.status === 200) {
+            localStorage.setItem("authToken", token);
+            setAuthorization(token);
+            setIsValidToken(true);
+          } else {
+            if (window.confirm("Auth token invalid, redirecting you to login page")) {
+              window.location.href = "https://metaphi.in";
+            }
+          }
+        } catch (error) {
+          if (window.confirm("Auth token invalid, redirecting you to login page")) {
+            window.location.href = "https://metaphi.in";
+          }
+        }
+      } else {
+        if (window.confirm("Auth token invalid, redirecting you to login page")) {
+          window.location.href = "https://metaphi.in";
+        }
+      }
+    };
+
+    validateToken();
+  }, [token, dispatch, bypassAuth]);
+
+  if (!isValidToken) {
+    return null; // or a loading indicator
+  }
 
   /*
     Navigate is un-auth access protected routes via url
     */
-
-  if (!userProfile && loading && !token) {
-    return (
-      <Navigate to={{ pathname: "/login" }} />
-    );
-  }
 
   return <>{props.children}</>;
 };
