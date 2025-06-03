@@ -90,7 +90,6 @@ import HotoWarehouse from "pages/HotoWarehouse";
 
 // Authentication
 import ApexSlop from "pages/Components/apexcharts/Slop/Index";
-import path from "path";
 
 const authProtectedRoutes = [
     

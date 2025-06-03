@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import getChartColorsArray from 'Common/ChartsDynamicColor';
 import Chart from 'react-apexcharts';
-import { createSelector } from 'reselect';
-import ApexCharts from 'apexcharts';
+import { createSelector } from 'reselect'
 import { useSelector } from 'react-redux';
 
 const DistributedColumn = ({ series, categories, dataColors }: any) => {
