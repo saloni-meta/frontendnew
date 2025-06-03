@@ -80,7 +80,7 @@ import ReactTable from "pages/Components/tables/ReactTable/index";
 import Overview from "pages/Dashboard/Overview";
 
 //HOTO Assets
-import BlockAssetsComponent from "pages/HotoAssets/Block/BlockAssets";
+import BlockAssets from "pages/HotoAssets/Block/index";
 import GpAssets from "pages/HotoAssets/GP";
 import RkmAssets from "pages/HotoAssets/RKM";
 import Warehouse from "pages/HotoAssets/Warehouse";
@@ -90,7 +90,6 @@ import HotoWarehouse from "pages/HotoWarehouse";
 
 // Authentication
 import ApexSlop from "pages/Components/apexcharts/Slop/Index";
-import path from "path";
 
 const authProtectedRoutes = [
     
@@ -100,7 +99,7 @@ const authProtectedRoutes = [
     { path: "/overview", name: "Overview Dashboard", component: <Overview /> },
 
     //HOTO assets
-    { path: "/hotoassets-block", name : "Block" ,component: <BlockAssetsComponent /> },
+    { path: "/hotoassets-block", name : "Block" ,component: <BlockAssets /> },
     { path: "/hotoassets-gp", name : "GP" ,component: <GpAssets /> },
     { path: "/hotoassets-rkm", name : "RKM" ,component: <RkmAssets /> },
     { path: "/hotoassets-warehouse", name : "warehouse" ,component: <Warehouse /> },

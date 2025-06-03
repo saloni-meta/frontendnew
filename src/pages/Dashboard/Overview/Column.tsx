@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import getChartColorsArray from 'Common/ChartsDynamicColor';
 import Chart from 'react-apexcharts';
-import { createSelector } from 'reselect';
-import ApexCharts from 'apexcharts';
+import { createSelector } from 'reselect'
 import { useSelector } from 'react-redux';
 
 const DistributedColumn = ({ series, categories, dataColors }: any) => {
     //var chartColumnDistributedColors = getChartColorsArray(dataColors);
-    const chartColors = dataColors || ['#51d28c', '#f7cc53', '#f34e4e', '#564ab1', '#5fd0f3'];
+    const chartColors = dataColors || ['#00b894', '#fdcb6e', '#e17055', '#fd9644'];
 
     // chart re-render
     const selectLayoutThemeType = createSelector(
