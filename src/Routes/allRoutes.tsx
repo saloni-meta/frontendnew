@@ -80,7 +80,7 @@ import ReactTable from "pages/Components/tables/ReactTable/index";
 import Overview from "pages/Dashboard/Overview";
 
 //HOTO Assets
-import BlockAssets from "pages/HotoAssets/Block/AssetPortfolio";
+import BlockAssets from "pages/HotoAssets/Block/index";
 import GpAssets from "pages/HotoAssets/GP";
 import RkmAssets from "pages/HotoAssets/RKM";
 import Warehouse from "pages/HotoAssets/Warehouse";

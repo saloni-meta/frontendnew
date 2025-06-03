@@ -15,7 +15,7 @@ const ColumnChart = ({series, categories, title} : any) => {
             </div>
           </Card.Header>
           <Card.Body>
-              <DistributedColumn series={series} categories={categories} dataColors={['#51d28c', '#f7cc53', '#f34e4e', '#564ab1']} />
+              <DistributedColumn series={series} categories={categories} dataColors={['#00b894', '#fdcb6e', '#e17055', '#fd9644']} />
           </Card.Body>
         </Card>
     </div>

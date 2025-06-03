@@ -22,42 +22,4 @@ const PieChart = ({ title, series, labels }: any) => (
 );
 
 
-/* const PieChart = () => {
-    document.title=" Apex Pie Charts | Steex Admin & Dashboard Template";
-
-    return (
-        <React.Fragment>
-            <div className="page">
-                <Breadcrumb pageTitle="Apexcharts" title="Pie Charts" />
-                <Row>
-                    <Col xl={12}>
-                        <Card>
-                            <Card.Header>
-                                <h4 className="card-title mb-0">Simple Pie Chart</h4>
-                            </Card.Header>
-
-                            <Card.Body>
-                                <SimpleDonut dataColors='["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-info"]' />
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-
-                    <Col xl={12}>
-                        <Card>
-                            <Card.Header>
-                                <h4 className="card-title mb-0">Simple Donut Chart</h4>
-                            </Card.Header>
-                            <Card.Body>
-                                <SimpleDonut dataColors='["--tb-primary", "--tb-success", "--tb-warning", "--tb-danger", "--tb-info"]' />
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                </Row>
-            </div>
-        </React.Fragment>
-    )
-} */
-
 export default PieChart;

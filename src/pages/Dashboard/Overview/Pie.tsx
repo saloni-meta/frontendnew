@@ -2,14 +2,6 @@ import { useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
-import getChartColorsArray from 'Common/ChartsDynamicColor';
-
-//Import images
-import smallImage1 from 'assets/images/small/img-1.jpg';
-import smallImage2 from 'assets/images/small/img-2.jpg';
-import smallImage3 from 'assets/images/small/img-3.jpg';
-import smallImage4 from 'assets/images/small/img-4.jpg';
-
 
 
 const SimpleDonut = ({ series, labels, dataColors } : any) => {
