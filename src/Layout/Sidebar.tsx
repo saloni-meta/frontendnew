@@ -38,6 +38,7 @@ const Sidebar = ({ layoutType }: any) => {
     <React.Fragment>
       <div className="app-menu navbar-menu">
         <div className="navbar-brand-box">
+          <h1>Logo</h1>
           <Link to={process.env.PUBLIC_URL + "/"} className="logo logo-dark">
             <span className="logo-sm">
               <img src={logoSm} alt="" height="22" />

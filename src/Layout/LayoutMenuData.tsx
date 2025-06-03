@@ -133,6 +133,7 @@ const Navdata = () => {
           label: "Overview",
           link: "/overview",
           parentId: "overview",
+          icon: "ph-squares-four",
         },
         {
             label: "HOTO assets",
@@ -180,7 +181,7 @@ const Navdata = () => {
         {
           id: "hotowarehouse",
           label: "HOTO Warehouse",
-          icon: "ph-bandaids",
+          icon: "ph-buildings",
           link: "/hotowarehouse",
           click: function (e: any) {
               e.preventDefault();
@@ -188,55 +189,6 @@ const Navdata = () => {
               setIscurrentState('HOTO Warehouse');
               //updateIconSidebar(e);
           }
-        },
-        {
-            label: "Components",
-            isHeader: true,
-        },
-        {
-            id: "bootstrapui",
-            label: "Bootstrap UI",
-            icon: "ph-bandaids",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsBootstrapUi(!isBootstrapUi);
-                setIscurrentState('Bootstrap UI');
-                //updateIconSidebar(e);
-            },
-            stateVariables: isBootstrapUi,
-            subItems: [
-                {
-                    id: "alerts",
-                    label: "Alerts",
-                    link: "/ui-alerts",
-                    parentId: "boostrapui",
-                },
-                { id: 2, label: "Badges", link: "/ui-badges", parentId: "boostrapui" },
-                { id: 3, label: "Buttons", link: "/ui-buttons", parentId: "boostrapui" },
-                { id: 4, label: "Colors", link: "/ui-colors", parentId: "boostrapui" },
-                { id: 5, label: "Cards", link: "/ui-cards", parentId: "boostrapui" },
-                { id: 6, label: "Carousel", link: "/ui-carousel", parentId: "boostrapui" },
-                { id: 7, label: "Dropdowns", link: "/ui-dropdowns", parentId: "boostrapui" },
-                { id: 8, label: "Grid", link: "/ui-grid", parentId: "boostrapui" },
-                { id: 9, label: "Images", link: "/ui-images", parentId: "boostrapui" },
-                { id: 10, label: "Tabs", link: "/ui-tabs", parentId: "boostrapui" },
-                { id: 11, label: "Accordions & Collapse", link: "/ui-accordions", parentId: "boostrapui" },
-                { id: 12, label: "Modals", link: "/ui-modals", parentId: "boostrapui" },
-                { id: 13, label: "Offcanvas", link: "/ui-offcanvas", parentId: "boostrapui" },
-                { id: 14, label: "Placeholder", link: "/ui-placeholders", parentId: "boostrapui" },
-                { id: 15, label: "Progress", link: "/ui-progress", parentId: "boostrapui" },
-                { id: 16, label: "Notifications", link: "/ui-notifications", parentId: "boostrapui" },
-                { id: 17, label: "Media Object", link: "/ui-media", parentId: "boostrapui" },
-                { id: 18, label: "Embed Video", link: "/ui-embed-video", parentId: "boostrapui" },
-                { id: 19, label: "Typography", link: "/ui-typography", parentId: "boostrapui" },
-                { id: 20, label: "Lists", link: "/ui-lists", parentId: "boostrapui" },
-                { id: 21, label: "Links", link: "/ui-links", parentId: "boostrapui" },
-                { id: 22, label: "General", link: "/ui-general", parentId: "boostrapui" },
-                { id: 23, label: "Utilities", link: "/ui-utilities", parentId: "boostrapui" },
-
-
-            ],
         },
         {
             id: "widgets",

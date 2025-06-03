@@ -9,6 +9,7 @@ const AuthProtected = (props: any) => {
   const token = searchParams.get("token");
   const [isValidToken, setIsValidToken] = useState(false);
   const bypassAuth = true; // Set to true to bypass authentication for development
+  // TODO: Remove bypassAuth flag in production
 
   useEffect(() => {
     const validateToken = async () => {
