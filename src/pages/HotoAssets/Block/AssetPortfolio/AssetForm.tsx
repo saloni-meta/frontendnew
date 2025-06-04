@@ -1,5 +1,7 @@
-import React from 'react';
-import { Modal, Button, Row, Col, Form, Table } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal, Button, Row, Col, Form, Table, ModalBody } from 'react-bootstrap';
+import TransferTable from './TransferTable';
+import MaintenanceTable from './Maintenance';
 
 type Asset = {
   srNo: number;
@@ -44,7 +46,21 @@ interface AssetFormProps {
 }
 
 const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
+  const [activeTab, setActiveTab] = useState("transferTable");
+
   if (!asset) return null;
+
+  const renderTable = () => {
+    console.log("table switch workinggg!!!!")
+    switch (activeTab) {
+      case "transferTable" :
+        return <TransferTable />;
+      case "maintenanceTable" :
+        return <MaintenanceTable />;
+      default:
+        return <TransferTable />; 
+    }
+  };
 
   return (
     <Modal show={show} onHide={onClose} centered size="xl">
@@ -127,11 +143,23 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         </Row>
 
         <div className="d-flex gap-3 my-3">
-          <Button variant="primary">Transfer</Button>
-          <Button variant="light">Maintenance</Button>
+          <Button 
+            variant={activeTab === 'transferTable' ? 'primary' : 'outline-primary'}
+            onClick={() => setActiveTab('trasnferTable')}
+          >
+            Transfer
+          </Button>
+          <Button variant={activeTab === 'maintenanceTable' ? 'primary' : 'outline-primary'}
+            onClick={() => setActiveTab('maintenanceTable')}
+          >
+            Maintenance
+          </Button>
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      <ModalBody>
+        {renderTable()}
+      </ModalBody>
+      <Modal.Footer className="d-flex justify-content-center">
         <Button variant="secondary" onClick={onClose}>
           Cancel
         </Button>
