@@ -69,7 +69,7 @@ const GPAssetTabs = () => {
                       variant={activeTab === 'gpWiseAssets' ? 'primary' : 'outline-primary'}
                       onClick={() => setActiveTab('gpWiseAssets')}
                     >
-                      Block-Wise Assets
+                      GP-Wise Assets
                     </Button>
                   </div>
                   <div className="d-flex gap-2">

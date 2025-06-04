@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { blockWiseAssetTableData } from '../DemoData/demodata';
 
@@ -36,14 +36,7 @@ const BlockWiseAssetTable = () => {
             sortable: true,
             cell: () => {
                 return (
-                    <Dropdown className="dropdown d-inline-block">
-                        <Dropdown.Toggle className="btn bg-secondary-subtle btn-light arrow-none arrow-none btn-sm">
-                            <i className="ri-more-fill align-middle"></i>
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdown-menu-end">
-                            <Dropdown.Item href="#!"><i className="ri-eye-fill align-bottom me-2 text-muted"></i>View</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                  <Button type="button" className="btn btn-sm btn-primary">View</Button>
                 );
             },
         },
