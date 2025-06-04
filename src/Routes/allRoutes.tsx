@@ -81,7 +81,7 @@ import Overview from "pages/Dashboard/Overview";
 
 //HOTO Assets
 import BlockAssets from "pages/HotoAssets/Block/index";
-import GpAssets from "pages/HotoAssets/GP";
+import GpAssets from "pages/HotoAssets/GP/index";
 import RkmAssets from "pages/HotoAssets/RKM";
 import Warehouse from "pages/HotoAssets/Warehouse";
 
