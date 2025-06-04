@@ -82,7 +82,7 @@ import Overview from "pages/Dashboard/Overview";
 //HOTO Assets
 import BlockAssets from "pages/HotoAssets/Block/index";
 import GpAssets from "pages/HotoAssets/GP/index";
-import RkmAssets from "pages/HotoAssets/RKM";
+import RKMModule from "pages/HotoAssets/RKM/index";
 import Warehouse from "pages/HotoAssets/Warehouse";
 
 //HOTO Warehouse
@@ -101,7 +101,7 @@ const authProtectedRoutes = [
     //HOTO assets
     { path: "/hotoassets-block", name : "Block" ,component: <BlockAssets /> },
     { path: "/hotoassets-gp", name : "GP" ,component: <GpAssets /> },
-    { path: "/hotoassets-rkm", name : "RKM" ,component: <RkmAssets /> },
+    { path: "/hotoassets-rkm", name : "RKM" ,component: <RKMModule /> },
     { path: "/hotoassets-warehouse", name : "warehouse" ,component: <Warehouse /> },
 
     //HOTO warehouse
