@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, Button, Row, Col, Form, Table, ModalBody } from 'react-bootstrap';
+import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import TransferTable from './TransferTable';
-import MaintenanceTable from './Maintenance';
+import MaintenanceTable from './MaintenanceTable';
 
 type Asset = {
   srNo: number;
@@ -155,10 +155,10 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
             Maintenance
           </Button>
         </div>
+        <div>
+          {renderTable()}
+        </div>
       </Modal.Body>
-      <ModalBody>
-        {renderTable()}
-      </ModalBody>
       <Modal.Footer className="d-flex justify-content-center">
         <Button variant="secondary" onClick={onClose}>
           Cancel

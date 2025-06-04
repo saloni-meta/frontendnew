@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
-//import { maintenanceTableData } from '../DemoData/demodata';
+import { maintenanceTableData } from '../DemoData/demodata';
 
 const MaintenanceTable = () => {
     const columns = [
@@ -58,7 +58,7 @@ const MaintenanceTable = () => {
     return (
       <DataTable
         columns={columns}
-        //data={maintenanceTableData} tested this too, data is rendered
+        data={maintenanceTableData} //tested this too, data is rendered
       /> 
     );
 };
