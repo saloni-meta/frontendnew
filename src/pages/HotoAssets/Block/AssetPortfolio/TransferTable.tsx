@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
-import { transferData } from '../DemoData/demodata';
+//import { transferData } from '../DemoData/demodata';
 
 const TransferTable = () => {
     const columns = [
@@ -68,7 +68,7 @@ const TransferTable = () => {
     return (
       <DataTable
         columns={columns}
-        data={transferData} //tested, data is rendered
+        //data={transferData} //tested, data is rendered
       /> 
     );
 };
