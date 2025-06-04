@@ -2,9 +2,9 @@ import React  from 'react';
 import { Dropdown, Form } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
-import { assetPortfolioData } from '../DemoData/demodata';
+import { assetPortfolioData } from 'pages/HotoAssets/Block/DemoData/demodata';
 
-const AssetPortfolioTable = () => {
+const GPAssetPortfolioTable = () => {
     const columns = [
         {
             name: <Form.Check className="fs-md" type="checkbox" name="checkAll" value="option1" />,
@@ -68,6 +68,16 @@ const AssetPortfolioTable = () => {
             sortable: true
         },
         {
+            name: <span className='font-weight-bold fs-sm'>GP Location</span>,
+            selector: (row: any) => row.gpLocation,
+            sortable: true
+        },
+        {
+            name: <span className='font-weight-bold fs-sm'>GP Code</span>,
+            selector: (row: any) => row.gpCode,
+            sortable: true
+        },
+        {
             name: <span className='font-weight-bold fs-sm'>Site Type</span>,
             selector: (row: any) => row.siteType,
             sortable: true
@@ -88,8 +98,8 @@ const AssetPortfolioTable = () => {
             cell: () => {
                 return (
                     <Dropdown className="dropdown d-inline-block">
-                        <Dropdown.Toggle className="btn bg-primary arrow-none arrow-none btn-sm">
-                            <i className="ri-information-fill "></i>
+                         <Dropdown.Toggle className="details-info-btn" id="details-dropdown-toggle">
+                          <i className="ri-information-fill" />
                         </Dropdown.Toggle>
                     </Dropdown>
                 );
@@ -102,9 +112,8 @@ const AssetPortfolioTable = () => {
         columns={columns}
         data={assetPortfolioData}
         pagination
-        PaginationClassName="d-flex justify-content-center justify-content-sm-end mt-2"
       />
     );
 };
 
-export default AssetPortfolioTable;
+export default GPAssetPortfolioTable;
