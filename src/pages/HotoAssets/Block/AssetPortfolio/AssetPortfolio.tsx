@@ -1,10 +1,60 @@
-import React  from 'react';
-import { Dropdown, Form } from 'react-bootstrap';
+import React, { useState }  from 'react';
+import { Button, Dropdown, Form } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
 import { assetPortfolioData } from '../DemoData/demodata';
+import AssetForm from './AssetForm';
+
+interface Asset {
+  srNo: number;
+  equipment: string;
+  serialNo: string;
+  condition: string;
+  status: string;
+  blockLocation: string;
+  blockCode: string;
+  siteType: string;
+  warranty: string;
+  requestFor: string;
+  
+  //form top fields
+  gp: string;
+  district: string;
+  popType: string;
+  address: string;
+  gpCode: string;
+  districtCode: string;
+  landmark: string;
+  latitude: string;
+  longitude: string;
+
+  //form bottom fields
+  unitSize: string;
+  make: string;
+  model: string;
+  racksPositioning: string;
+  ofcConnectivity: string;
+  connectivityEntry: string;
+  ofcType: string;
+  entryPoint: string;
+  socketAvailability: string;
+  slotType: string;
+}
 
 const AssetPortfolioTable = () => {
+  const [showForm, setShowForm] = useState(false); 
+  const [selectedRow, setSelectedRow] = useState<Asset | null>(null);
+
+  const handleOpenForm = (row: any) => {
+    setSelectedRow(row);
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+    setSelectedRow(null);
+  };
+
     const columns = [
         {
             name: <Form.Check className="fs-md" type="checkbox" name="checkAll" value="option1" />,
@@ -85,25 +135,33 @@ const AssetPortfolioTable = () => {
         {
             name: <span className='font-weight-bold fs-sm'>Details</span>,
             sortable: true,
-            cell: () => {
-                return (
-                    <Dropdown className="dropdown d-inline-block">
-                        <Dropdown.Toggle className="btn bg-primary arrow-none arrow-none btn-sm">
+            cell: (row: Asset) => (  
+                        <Button variant="primary" className="btn-icon" onClick={() => handleOpenForm(row)}>
                             <i className="ri-information-fill "></i>
-                        </Dropdown.Toggle>
-                    </Dropdown>
-                );
-            },
+                        </Button>
+                    
+                )
         },
     ];
 
     return ( 
-      <DataTable
-        columns={columns}
-        data={assetPortfolioData}
-        pagination
-        PaginationClassName="d-flex justify-content-center justify-content-sm-end mt-2"
-      />
+      <div>
+        <DataTable
+          columns={columns}
+          data={assetPortfolioData}
+          pagination
+          PaginationClassName="d-flex justify-content-center justify-content-sm-end mt-2"
+        />
+
+        {showForm && selectedRow && (
+        <AssetForm
+          show={showForm}
+          onClose={handleCloseForm}
+          asset={selectedRow} // Pass the selected row to the form
+        />
+      )}
+      </div>
+      
     );
 };
 
