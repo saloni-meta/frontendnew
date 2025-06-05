@@ -43,26 +43,26 @@ const EditDetailsForm: React.FC<EditDetailsProps> = ({ show, onClose, editDetail
         </div>
       </Modal.Header>
       <Modal.Body>
-        <Row className="gy-4">
+        <Row className="mb-3">
           <Col md={3}>
             <Form.Group>
               <Form.Label>Equipment</Form.Label>
               <Form.Control type="text" value="Rack" readOnly />
             </Form.Group>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Group>
               <Form.Label>Make</Form.Label>
               <Form.Control type="text" value={form.make} readOnly />
             </Form.Group>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Group>
               <Form.Label>Model</Form.Label>
               <Form.Control type="text" value={form.model} readOnly />
             </Form.Group>
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Group>
               <Form.Label>Serial No</Form.Label>
               <Form.Control type="text" value={form.serialNo} readOnly/>
@@ -77,6 +77,8 @@ const EditDetailsForm: React.FC<EditDetailsProps> = ({ show, onClose, editDetail
               </Form.Select>
             </Form.Group>
           </Col>
+        </Row>
+        <Row className="mb-3">
           <Col md={3}>
             <Form.Group>
               <Form.Label>Warranty Due Date</Form.Label>

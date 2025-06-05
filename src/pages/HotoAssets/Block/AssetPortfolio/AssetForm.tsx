@@ -98,41 +98,38 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
             <Form.Label>Unit Size</Form.Label>
             <Form.Control value={asset.unitSize} readOnly />
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Label>Make</Form.Label>
             <Form.Control value={asset.make} readOnly />
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Label>Model</Form.Label>
             <Form.Control value={asset.model} readOnly />
           </Col>
-          <Col md={3}>
+          <Col md={2}>
             <Form.Label>Racks Positioning</Form.Label>
             <Form.Control value={asset.racksPositioning} readOnly />
           </Col>
-        </Row>
-
-        <Row className="mb-3">
           <Col md={3}>
             <Form.Label>OFC Connectivity</Form.Label>
             <Form.Control value={asset.ofcConnectivity } readOnly />
           </Col>
-          <Col md={3}>
-            <Form.Label>No. of Connectivity Entry</Form.Label>
-            <Form.Control value={asset.connectivityEntry} readOnly />
-          </Col>
-          <Col md={3}>
-            <Form.Label>OFC Type</Form.Label>
-            <Form.Control value={asset.ofcType} readOnly />
-          </Col>
-          <Col md={3}>
-            <Form.Label>Entry Point</Form.Label>
-            <Form.Control value={asset.entryPoint} readOnly />
-          </Col>
         </Row>
 
         <Row className="mb-3">
           <Col md={3}>
+            <Form.Label>No. of Connectivity Entry</Form.Label>
+            <Form.Control value={asset.connectivityEntry} readOnly />
+          </Col>
+          <Col md={2}>
+            <Form.Label>OFC Type</Form.Label>
+            <Form.Control value={asset.ofcType} readOnly />
+          </Col>
+          <Col md={2}>
+            <Form.Label>Entry Point</Form.Label>
+            <Form.Control value={asset.entryPoint} readOnly />
+          </Col>
+          <Col md={2}>
             <Form.Label>Power Socket Availability</Form.Label>
             <Form.Control value={asset.socketAvailability} readOnly />
           </Col>
@@ -160,7 +157,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         </div>
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center">
-        <Button variant="secondary" onClick={onClose} aria-label="Cancel">
+        <Button variant="secondary" onClick={onClose} >
           Cancel
         </Button>
       </Modal.Footer>
