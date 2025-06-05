@@ -9,7 +9,9 @@ export const assetPortfolioData = [
     "blockCode": "274063",
     "siteType": "Off Site",
     "warranty": "Yes",
-    "requestFor": "Replacement"
+    "requestFor": "Replacement",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "02",
@@ -21,7 +23,9 @@ export const assetPortfolioData = [
     "blockCode": "268678",
     "siteType": "Native Site",
     "warranty": "Yes",
-    "requestFor": "-"
+    "requestFor": "-",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "03",
@@ -33,7 +37,9 @@ export const assetPortfolioData = [
     "blockCode": "268653",
     "siteType": "Native Site",
     "warranty": "Yes",
-    "requestFor": "Maintenance"
+    "requestFor": "Maintenance",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "04",
@@ -45,7 +51,9 @@ export const assetPortfolioData = [
     "blockCode": "81093",
     "siteType": "Off Site",
     "warranty": "No",
-    "requestFor": "-"
+    "requestFor": "-",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "05",
@@ -57,7 +65,9 @@ export const assetPortfolioData = [
     "blockCode": "81094",
     "siteType": "Assigned Site",
     "warranty": "Yes",
-    "requestFor": "-"
+    "requestFor": "-",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "06",
@@ -69,7 +79,9 @@ export const assetPortfolioData = [
     "blockCode": "81095",
     "siteType": "Assigned Site",
     "warranty": "Yes",
-    "requestFor": "-"
+    "requestFor": "-",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "07",
@@ -81,7 +93,9 @@ export const assetPortfolioData = [
     "blockCode": "81096",
     "siteType": "Assigned Site",
     "warranty": "Yes",
-    "requestFor": "-"
+    "requestFor": "-",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "08",
@@ -93,7 +107,9 @@ export const assetPortfolioData = [
     "blockCode": "81097",
     "siteType": "Native Site",
     "warranty": "Yes",
-    "requestFor": "Maintenance"
+    "requestFor": "Maintenance",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "09",
@@ -105,7 +121,9 @@ export const assetPortfolioData = [
     "blockCode": "274068",
     "siteType": "Native Site",
     "warranty": "No",
-    "requestFor": "Maintenance"
+    "requestFor": "Maintenance",
+    "model": "dummy data",
+    "make": "dummy data"
   },
   {
     "srNo": "10",
@@ -117,7 +135,9 @@ export const assetPortfolioData = [
     "blockCode": "81098",
     "siteType": "Native Site",
     "warranty": "No",
-    "requestFor": "Replacement"
+    "requestFor": "Replacement",
+    "model": "dummy data",
+    "make": "dummy data"
   }
 ]
 

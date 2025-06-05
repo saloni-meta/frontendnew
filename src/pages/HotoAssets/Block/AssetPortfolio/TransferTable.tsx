@@ -68,7 +68,7 @@ const TransferTable = () => {
     return (
       <DataTable
         columns={columns}
-        //data={transferData} tested, data is rendered
+        //data={transferData} //tested, data is rendered
       /> 
     );
 };

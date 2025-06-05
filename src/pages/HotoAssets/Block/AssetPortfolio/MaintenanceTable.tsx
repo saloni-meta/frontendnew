@@ -58,7 +58,7 @@ const MaintenanceTable = () => {
     return (
       <DataTable
         columns={columns}
-        //data={maintenanceTableData} tested this too, data is rendered
+        //data={maintenanceTableData} //tested this too, data is rendered
       /> 
     );
 };
