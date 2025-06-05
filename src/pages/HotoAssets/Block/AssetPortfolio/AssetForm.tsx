@@ -67,7 +67,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
       <Modal.Header closeButton>
         <div className="d-flex flex-column w-100">
           <div className="d-flex align-items-center mb-2">
-            <Button variant="link" className="p-0 me-2 text-dark" onClick={onClose}>
+            <Button variant="link" className="p-0 me-2 text-dark" onClick={onClose} aria-label="Back">
               <i className="ri-arrow-left-line fs-5"></i>
             </Button>
             <Modal.Title>Rack</Modal.Title>
@@ -96,7 +96,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         <Row className="mb-3">
           <Col md={3}>
             <Form.Label>Unit Size</Form.Label>
-            <Form.Control value={asset.make} readOnly />
+            <Form.Control value={asset.unitSize} readOnly />
           </Col>
           <Col md={3}>
             <Form.Label>Make</Form.Label>
@@ -115,7 +115,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         <Row className="mb-3">
           <Col md={3}>
             <Form.Label>OFC Connectivity</Form.Label>
-            <Form.Control value={asset.racksPositioning} readOnly />
+            <Form.Control value={asset.ofcConnectivity } readOnly />
           </Col>
           <Col md={3}>
             <Form.Label>No. of Connectivity Entry</Form.Label>
@@ -145,7 +145,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         <div className="d-flex gap-3 my-3">
           <Button 
             variant={activeTab === 'transferTable' ? 'primary' : 'outline-primary'}
-            onClick={() => setActiveTab('trasnferTable')}
+            onClick={() => setActiveTab('transferTable')}
           >
             Transfer
           </Button>
@@ -160,7 +160,7 @@ const AssetForm: React.FC<AssetFormProps> = ({ show, onClose, asset }) => {
         </div>
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center">
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose} aria-label="Cancel">
           Cancel
         </Button>
       </Modal.Footer>
