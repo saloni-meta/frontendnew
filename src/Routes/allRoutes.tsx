@@ -9,9 +9,13 @@ import GpAssets from "pages/HotoAssets/GP/index";
 import RKMModule from "pages/HotoAssets/RKM/index";
 import Warehouse from "pages/HotoAssets/Warehouse";
 
-//Asset Form
+//Assets-Block Form
 import AssetForm from "pages/HotoAssets/Block/AssetPortfolio/AssetForm";
 import BlockWiseForm from "pages/HotoAssets/Block/BlockWiseAssets/BlockWiseForm";
+
+//Assets-GP Form
+import GPAssetForm from "pages/HotoAssets/GP/AssetPortfolio/GPAssetForm";
+
 
 //HOTO Warehouse
 import HotoWarehouse from "pages/HotoWarehouse";
@@ -23,8 +27,9 @@ const authProtectedRoutes = [
     
   // OVerview
     { path: "/", exact: true ,component: <Navigate to="/overview" /> },
-    { path: "/asset/:srNo", name: "Asset Details", component: <AssetForm /> },
+    { path: "/asset/:srNo", name: "AssetForm", component: <AssetForm /> },
     { path: "/block/:srNo", name: "BlockWiseForm", component: <BlockWiseForm />},
+    { path: "/gpasset/:srNo", name: "GPAssetForm", component: <GPAssetForm />},
     { path: "*", component: <Navigate to="/overview" /> },
     { path: "/overview", name: "Overview Dashboard", component: <Overview /> },
 
