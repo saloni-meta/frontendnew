@@ -1,9 +1,9 @@
 import React, { useState }  from 'react';
-import { Button, Dropdown, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
 import { assetPortfolioData } from '../DemoData/demodata';
-import AssetForm from './AssetForm';
+import { Link } from 'react-router-dom';
 
 interface Asset {
   srNo: number;
@@ -42,18 +42,19 @@ interface Asset {
 }
 
 const AssetPortfolioTable = () => {
-  const [showForm, setShowForm] = useState(false); 
+  /* const [showForm, setShowForm] = useState(false); 
   const [selectedRow, setSelectedRow] = useState<Asset | null>(null);
+
 
   const handleOpenForm = (row: any) => {
     setSelectedRow(row);
     setShowForm(true);
-  };
+  }; */
 
-  const handleCloseForm = () => {
+  /* const handleCloseForm = () => {
     setShowForm(false);
     setSelectedRow(null);
-  };
+  }; */
 
     const columns = [
         {
@@ -136,11 +137,12 @@ const AssetPortfolioTable = () => {
             name: <span className='font-weight-bold fs-sm'>Details</span>,
             sortable: true,
             cell: (row: Asset) => (  
-                        <Button variant="primary" className="btn-icon" onClick={() => handleOpenForm(row)}>
-                            <i className="ri-information-fill "></i>
-                        </Button>
-                    
-                )
+                <Link to={`/asset/${row.srNo}`}>
+                  <Button variant="primary" className="btn btn-sm btn-primary" >
+                    <i className="ri-information-fill "></i>
+                  </Button>
+                </Link>
+              )
         },
     ];
 
@@ -150,16 +152,7 @@ const AssetPortfolioTable = () => {
           columns={columns}
           data={assetPortfolioData}
           pagination
-          PaginationClassName="d-flex justify-content-center justify-content-sm-end mt-2"
         />
-
-        {showForm && selectedRow && (
-        <AssetForm
-          show={showForm}
-          onClose={handleCloseForm}
-          asset={selectedRow} // Pass the selected row to the form
-        />
-      )}
       </div>
       
     );
