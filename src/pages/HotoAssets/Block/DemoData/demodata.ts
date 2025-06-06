@@ -11,7 +11,24 @@ export const assetPortfolioData = [
     "warranty": "Yes",
     "requestFor": "Replacement",
     "model": "dummy data",
-    "make": "dummy data"
+    "make": "dummy data",
+    "gp":"Mahaljana",
+    "district": "Muzaffarnagr",
+    "popType":"Block",
+    "address": "-",
+    "gpCode": "268653",
+    "landmark": "-",
+    "latitude": "29.243062",
+    "longitude": "77.5020021",
+    "unitSize": "-",
+    "racksPositioning": "Ground Based",
+    "ofcConnectivity": "Yes",
+    "connectivityEntry": "1",
+    "ofcType": "6F",
+    "entryPoint": "Left",
+    "socketAvailability": "Yes",
+    "slotType": "single",
+    "districtCode": "-"
   },
   {
     "srNo": "02",
@@ -147,7 +164,13 @@ export const blockWiseAssetTableData = [
     "block": "Bhudhana",
     "blockCode": "",
     "district": "Muzaffarnagar",
-    "districtCode": ""
+    "districtCode": "",
+    "blockLocation": "Bhudhana",
+    "popType": "Block",
+    "address": "-",
+    "landmark": "-",
+    "latitude": "29.243062",
+    "longitude": "77.5020021"
   },
   {
     "srNo": "02",

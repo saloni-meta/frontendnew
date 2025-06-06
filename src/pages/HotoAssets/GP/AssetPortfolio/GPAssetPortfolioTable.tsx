@@ -1,10 +1,24 @@
-import React  from 'react';
-import { Dropdown, Form } from 'react-bootstrap';
+import React, { useState }  from 'react';
+import { Button, Dropdown, Form } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
 import { assetPortfolioData } from 'pages/HotoAssets/Block/DemoData/demodata';
 
 const GPAssetPortfolioTable = () => {
+  const [showForm, setShowForm] = useState(false); 
+    const [selectedRow, setSelectedRow] = useState<GPAsset | null>(null);
+  
+    const handleOpenForm = (row: any) => {
+      setSelectedRow(row);
+      setShowForm(true);
+    };
+  
+    const handleCloseForm = () => {
+      setShowForm(false);
+      setSelectedRow(null);
+    };
+
+    
     const columns = [
         {
             name: <Form.Check className="fs-md" type="checkbox" name="checkAll" value="option1" />,
@@ -97,11 +111,9 @@ const GPAssetPortfolioTable = () => {
             sortable: true,
             cell: () => {
                 return (
-                    <Dropdown className="dropdown d-inline-block">
-                         <Dropdown.Toggle className="details-info-btn" id="details-dropdown-toggle">
-                          <i className="ri-information-fill" />
-                        </Dropdown.Toggle>
-                    </Dropdown>
+                    <Button variant="primary" className="btn-icon" onClick={() => handleOpenForm(row)}>
+                            <i className="ri-information-fill "></i>
+                    </Button>
                 );
             },
         },

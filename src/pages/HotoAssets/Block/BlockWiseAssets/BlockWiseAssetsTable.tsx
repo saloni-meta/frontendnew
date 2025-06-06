@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import BlockWiseForm from './BlockWiseForm';
 import { blockWiseAssetTableData } from '../DemoData/demodata';
+import { Link } from 'react-router-dom';
 
 interface Block {
   srNo: string;
@@ -28,7 +29,7 @@ interface Block {
 };
 
 const BlockWiseAssetTable = () => {
-  const [showForm, setShowForm] = useState(false); 
+  /* const [showForm, setShowForm] = useState(false); 
   const [selectedRow, setSelectedRow] = useState<Block | null>(null);
 
   const handleOpenForm = (row: Block) => {
@@ -39,7 +40,7 @@ const BlockWiseAssetTable = () => {
   const handleCloseForm = () => {
     setShowForm(false);
     setSelectedRow(null);
-  };
+  }; */
   
     const columns = [
         {
@@ -70,29 +71,21 @@ const BlockWiseAssetTable = () => {
         {
             name: <span className='font-weight-bold fs-sm'>Assets</span>,
             sortable: true,
-            cell: (row : Block) => {
-                return (
-                  <Button type="button" className="btn btn-sm btn-primary" onClick={() => handleOpenForm(row)}>View</Button>
-                );
-            },
+            cell: (row : Block) => (
+              <Link to={`/block/${row.srNo}`}>
+                  <Button type="button" className="btn btn-sm btn-primary">View</Button>
+              </Link>
+            ),
         },
     ];
 
     return (
       <div>
         <DataTable
-        columns={columns}
-        data={blockWiseAssetTableData}
-        pagination
-      />
-
-        {showForm && selectedRow && (
-          <BlockWiseForm
-            show={showForm}
-            onClose={handleCloseForm}
-            block={selectedRow} 
-          />
-        )} 
+          columns={columns}
+          data={blockWiseAssetTableData}
+          pagination
+        />
       </div>
       
               
