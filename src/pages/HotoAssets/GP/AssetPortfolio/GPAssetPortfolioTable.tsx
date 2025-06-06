@@ -1,24 +1,47 @@
 import React, { useState }  from 'react';
-import { Button, Dropdown, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import DataTable from 'react-data-table-component';
 import { Badge } from "react-bootstrap";
 import { assetPortfolioData } from 'pages/HotoAssets/Block/DemoData/demodata';
+import { Link } from 'react-router-dom';
+
+interface GPAsset {
+  srNo: number;
+  equipment: string;
+  serialNo: string;
+  condition: string;
+  status: string;
+  blockLocation: string;
+  blockCode: string;
+  siteType: string;
+  warranty: string;
+  requestFor: string;
+  
+  //form top fields
+  gp: string;
+  district: string;
+  popType: string;
+  address: string;
+  gpCode: string;
+  districtCode: string;
+  landmark: string;
+  latitude: string;
+  longitude: string;
+
+  //form bottom fields
+  unitSize: string;
+  make: string;
+  model: string;
+  racksPositioning: string;
+  ofcConnectivity: string;
+  connectivityEntry: string;
+  ofcType: string;
+  entryPoint: string;
+  socketAvailability: string;
+  slotType: string;
+}
 
 const GPAssetPortfolioTable = () => {
-  const [showForm, setShowForm] = useState(false); 
-    const [selectedRow, setSelectedRow] = useState<GPAsset | null>(null);
-  
-    const handleOpenForm = (row: any) => {
-      setSelectedRow(row);
-      setShowForm(true);
-    };
-  
-    const handleCloseForm = () => {
-      setShowForm(false);
-      setSelectedRow(null);
-    };
-
-    
     const columns = [
         {
             name: <Form.Check className="fs-md" type="checkbox" name="checkAll" value="option1" />,
@@ -109,22 +132,24 @@ const GPAssetPortfolioTable = () => {
         {
             name: <span className='font-weight-bold fs-sm'>Details</span>,
             sortable: true,
-            cell: () => {
-                return (
-                    <Button variant="primary" className="btn-icon" onClick={() => handleOpenForm(row)}>
-                            <i className="ri-information-fill "></i>
-                    </Button>
-                );
-            },
+            cell: (row: GPAsset) => (
+              <Link to={`/gpasset/${row.srNo}`}>
+                <Button variant="primary" className="btn-icon" >
+                  <i className="ri-information-fill "></i>
+                </Button>
+              </Link>
+            )
         },
     ];
 
     return ( 
-      <DataTable
-        columns={columns}
-        data={assetPortfolioData}
-        pagination
-      />
+      <div>
+        <DataTable
+          columns={columns}
+          data={assetPortfolioData}
+          pagination
+        />
+      </div>
     );
 };
 
